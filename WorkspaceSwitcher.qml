@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import "config.js" as Config
+
 RowLayout {
     id: root
 
