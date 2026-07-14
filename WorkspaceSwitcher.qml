@@ -4,27 +4,23 @@ import Quickshell.Wayland
 import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
 
 import "config.js" as Config
 
 RowLayout {
     id: root
 
-    property int activeWorkspace
-
-    Process {
-        id: launcher
-        stderr: SplitParser {
-            onRead: data => console.log("hyprctl stderr:", data)
-        }
-    }
+    property bool currentMonitorOnly: true
 
     Repeater {
-        model: 10
-        Rectangle {
-            required property int index
+        model: Hyprland.workspaces
 
-            Layout.fillHeight: true
+        Rectangle {
+            property bool isBarMonitor: modelData.monitor?.name === Screen?.name
+
+            visible: currentMonitorOnly ? isBarMonitor && modelData.id > 0 : true
+            Layout.fillHeight: visible
             Layout.preferredWidth: height
 
             color: mouseArea.containsMouse ? Config.colors.muted : Config.colors.bgDark
@@ -34,17 +30,15 @@ RowLayout {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: e => {
-                    launcher.exec(["hyprctl", "dispatch", "hl.dsp.focus({ workspace = '" + (index + 1) + "' })"])
-                }
+                onClicked: modelData.activate()
             }
 
             Text {
                 id: contentText
                 anchors.centerIn: parent
-                text: (index + 1)
-                color: activeWorkspace === (index+1) ? Config.colors.cyan : Config.colors.fg
-                font.bold: activeWorkspace === (index+1)
+                text: modelData.id
+                color: modelData.active ? Config.colors.cyan : Config.colors.fg
+                font.bold: modelData.active
                 font.family: Config.bar.fontFamily
                 font.pixelSize: Config.bar.fontSize - 2
             }

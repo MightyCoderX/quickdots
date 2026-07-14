@@ -18,7 +18,7 @@ RowLayout {
     spacing: 0
 
     WorkspaceSwitcher {
-        activeWorkspace: 1
+        currentMonitorOnly: true
     }
 
     // spacer
