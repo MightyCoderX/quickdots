@@ -2,26 +2,28 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Services.Notifications
-import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
 
 import "modules"
 
-import "config.js" as Config
+import "../config.js" as Config
 
 RowLayout {
-    id: rightCol
-    spacing: 10
-
     anchors {
-        left: centerCol.right
+        left: parent.left
+        right: centerCol.left
         top: parent.top
         bottom: parent.bottom
-        right: parent.right
     }
 
-    Item { Layout.fillWidth: true; }
+    spacing: 0
 
-    Metrics {}
+    WorkspaceSwitcher {
+        currentMonitorOnly: true
+    }
+
+    // spacer
+    Item { Layout.fillWidth: true }
 }
+

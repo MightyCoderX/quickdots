@@ -5,9 +5,9 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 
-import "../.."
+import "../../../base"
 
-import "../../config.js" as Config
+import "../../../config.js" as Config
 
 Rectangle {
     id: root

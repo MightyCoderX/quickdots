@@ -6,10 +6,11 @@ import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
 
+import "../../base"
 import "metrics"
 import "metrics/stats"
 
-import "../config.js" as Config
+import "../../config.js" as Config
 
 RowLayout {
     id: metrics

@@ -5,23 +5,16 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 
-import "config.js" as Config
+import "modules"
+
+import "../config.js" as Config
 
 RowLayout {
     anchors {
-        left: parent.left
-        right: centerCol.left
+        horizontalCenter: parent.horizontalCenter
         top: parent.top
         bottom: parent.bottom
     }
 
-    spacing: 0
-
-    WorkspaceSwitcher {
-        currentMonitorOnly: true
-    }
-
-    // spacer
-    Item { Layout.fillWidth: true }
+    DateTime {}
 }
-

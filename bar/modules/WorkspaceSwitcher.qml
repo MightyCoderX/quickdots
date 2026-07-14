@@ -6,7 +6,9 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
 
-import "config.js" as Config
+import "../../base"
+
+import "../../config.js" as Config
 
 RowLayout {
     id: root
@@ -33,14 +35,12 @@ RowLayout {
                 onClicked: modelData.activate()
             }
 
-            Text {
+            PanelText {
                 id: contentText
                 anchors.centerIn: parent
                 text: modelData.id
                 color: modelData.active ? Config.colors.cyan : Config.colors.fg
                 font.bold: modelData.active
-                font.family: Config.bar.fontFamily
-                font.pixelSize: Config.bar.fontSize - 2
             }
         }
     }

@@ -5,10 +5,8 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 
-import "config.js" as Config
+import "bar"
 
-Text {
-    font.family: Config.bar.fontFamily
-    font.pixelSize: Config.bar.fontSize - 2
-    color: Config.colors.fg
+Scope {
+    Bar {}
 }

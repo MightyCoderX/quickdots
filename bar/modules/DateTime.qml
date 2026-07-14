@@ -5,7 +5,9 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 
-import "config.js" as Config
+import "../../base"
+
+import "../../config.js" as Config
 
 PanelText {
     property string format: "ddd MMM dd yyyy hh:mm"

@@ -5,7 +5,7 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 
-import "config.js" as Config
+import "../config.js" as Config
 
 PanelWindow {
     anchors {
