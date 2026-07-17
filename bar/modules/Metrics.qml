@@ -60,11 +60,10 @@ RowLayout {
         icon: {
             const intervalSize = 100 / icons.length;
 
-            let icon = "";
             for(let i = 0; i < icons.length; i++) {
                 const start = i*intervalSize;
                 const end = start+intervalSize;
-                if(value >= start && value < end) {
+                if(value >= start && value <= end) {
                     return icons[i];
                 }
             }
