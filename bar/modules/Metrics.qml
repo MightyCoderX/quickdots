@@ -53,21 +53,10 @@ RowLayout {
             pollInterval: 1000
         }
 
-        property var icons: ["", "", ""]
-
         value: thermalStats.tempC
+        maxValue: 100
 
-        icon: {
-            const intervalSize = 100 / icons.length;
-
-            for(let i = 0; i < icons.length; i++) {
-                const start = i*intervalSize;
-                const end = start+intervalSize;
-                if(value >= start && value <= end) {
-                    return icons[i];
-                }
-            }
-        }
+        icons: ["", "", ""]
         fgColor: value < 90 ? Config.colors.fg : Config.colors.red
         displayValue: value + "°C"
     }
