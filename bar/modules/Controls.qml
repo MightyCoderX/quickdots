@@ -16,6 +16,24 @@ RowLayout {
     spacing: 5
 
     Metric {
+        id: idleInhibitor
+        property bool active: false
+
+        Process {
+            id: lockProc
+            command: ["systemd-inhibit", "--what=idle", "--who=Quickshell", "--why=UserToggled", "sleep", "infinity"]
+        }
+
+        onClicked: {
+            active = !active;
+            lockProc.running = active
+        }
+
+        icon: active ? "" : ""
+        displayValue: ""
+    }
+
+    Metric {
         id: volume
 
         PwObjectTracker {
