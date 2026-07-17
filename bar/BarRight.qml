@@ -24,4 +24,5 @@ RowLayout {
     Item { Layout.fillWidth: true; }
 
     Metrics {}
+    Controls {}
 }
