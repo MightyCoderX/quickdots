@@ -68,8 +68,8 @@ RowLayout {
                 }
             }
         }
-        fgColor: thermalStats.tempC < 90 ? Config.colors.fg : Config.colors.red
-        displayValue: thermalStats.tempC + "°C"
+        fgColor: value < 90 ? Config.colors.fg : Config.colors.red
+        displayValue: value + "°C"
     }
 
     Metric {
