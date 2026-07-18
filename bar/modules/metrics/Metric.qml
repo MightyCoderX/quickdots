@@ -4,6 +4,7 @@ import Quickshell.Wayland
 import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 import "../../../base"
 
@@ -18,6 +19,7 @@ Rectangle {
     property int maxValue: 100
     property int minValue: 0
 
+    property string title: "hello"
     property var icons
     property string icon: {
         if (icons) {
@@ -51,8 +53,32 @@ Rectangle {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
+
+        hoverEnabled: true
+
+        // ToolTip {
+        //     parent: mouseArea
+        //     visible: mouseArea.containsMouse
+        //     delay: 400
+        //
+        //     y: parent.height + 5
+        //     x: (parent.width - width) / 2
+        //
+        //     margins: 0
+        //
+        //     contentItem: PanelText {
+        //         text: root.title
+        //     }
+        //
+        //     background: Rectangle {
+        //         color: Config.colors.bgDark
+        //         border.color: Config.colors.bg
+        //         border.width: 1
+        //         radius: 4
+        //     }
+        // }
+
         onClicked: mouse => root.clicked(mouse)
         onWheel: wheel => {
             root.wheel(wheel);

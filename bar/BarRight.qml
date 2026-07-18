@@ -23,6 +23,9 @@ RowLayout {
 
     Item { Layout.fillWidth: true; }
 
+    // TODO: system tray
     Metrics {}
     Controls {}
+    Connections {}
+    // TODO: notifications button
 }
