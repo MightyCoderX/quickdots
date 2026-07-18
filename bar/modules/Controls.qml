@@ -65,7 +65,7 @@ RowLayout {
 
         value: 0.0
 
-        icons: [ "󰃞", "󰃟", "󰃠" ]
+        icons: [ "󰃞", "󰃝", "󰃟", "󰃠" ]
         displayValue: Math.round(value) + "%"
 
         // poll brightness every 2 seconds
